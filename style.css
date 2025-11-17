@@ -1,0 +1,27 @@
+*{
+    box-sizing: border-box;
+    margin: o ;
+    padding: 0 ;
+    font-family: 'Kumbh sans', sans-serif;
+}
+
+.navbar{
+    background: #131313;
+    height: 80px;
+    display: flex;
+    justify-content:Center ;
+    align-items: center;
+    font-siz: 1.2rem;
+    position:sticky ;
+    top: 0;
+    z-index: 999;
+
+}
+
+.navbar__container{
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    z_index: 1;
+    width 
+}

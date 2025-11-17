@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letsebela Prudence Lebenya | Professional Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #2d3748;
+            --accent: #e53e3e;
+            --light: #f7fafc;
+            --dark: #2d3748;
+            --gray: #718096;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,128L48,144C96,160,192,192,288,186.7C384,181,480,139,576,138.7C672,139,768,181,864,197.3C960,213,1056,203,1152,181.3C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        #profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            display: block;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+        }
+        
+        #profile-img:hover {
+            transform: scale(1.05);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .tagline {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            transition: var(--transition);
+        }
+        
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        nav {
+            background-color: var(--secondary);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            transition: var(--transition);
+            position: relative;
+            font-weight: 500;
+        }
+        
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background-color: var(--accent);
+            transition: var(--transition);
+            transform: translateX(-50%);
+        }
+        
+        .nav-links li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-links li a:hover::after,
+        .nav-links li a.active::after {
+            width: 80%;
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            position: relative;
+            font-size: 2.2rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            margin: 0.8rem auto;
+            border-radius: 2px;
+        }
+        
+        .profile-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .profile-content p {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-category {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            border-top: 4px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid #eee;
+            font-size: 1.4rem;
+        }
+        
+        .skill-list {
+            list-style-type: none;
+        }
+        
+        .skill-list li {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .skill-list li:before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+        
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            padding: 15px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 25px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            position: relative;
+            transition: var(--transition);
+            border-left: 4px solid var(--primary);
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--accent);
+            border-radius: 50%;
+            top: 30px;
+            right: -12px;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -12px;
+            right: auto;
+        }
+        
+        .timeline-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+        
+        .timeline-content .date {
+            color: var(--accent);
+            font-weight: bold;
+            margin-bottom: 0.8rem;
+            display: inline-block;
+            background: rgba(229, 62, 62, 0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .education-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .education-table th, .education-table td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .education-table th {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            font-weight: 600;
+        }
+        
+        .education-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .education-table tr:hover {
+            background-color: #f0f4f8;
+        }
+        
+        .education-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 99;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-content::before {
+                left: -12px;
+                right: auto;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <img src="z3.jpeg" alt="Profile Picture" id="profile-img">
+            <h1>Letsebela Prudence Lebenya</h1>
+            <p class="tagline">Principal Property Practitioner | ICT & Engineering Consultant | Property Developer</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>078 114 2274 / 084 208 0753</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>letsebela@gmail.com</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container nav-container">
+            <ul class="nav-links">
+                <li><a href="#profile" class="active">Profile</a></li>
+                <li><a href="#expertise">Expertise</a></li>
+                <li><a href="#methodologies">Methodologies & Tools</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="profile">
+        <div class="container">
+            <h2 class="section-title">Professional Profile</h2>
+            <div class="profile-content">
+                <p>Letsebela Lebenya has extensive experience in Property Development and Management, Real Estate, ICT, Electronics and Mathematics. ICT has been her primary focus area over the past 20 years. She is currently a Principal Property Practitioner at her own Real Estate Agency, Property Developer and an Independent ICT and Engineering Consultant.</p>
+                <p>Her previous ICT related positions included Senior Manager: EA, BA and PMO in the largest Water Utility company in Africa, Enterprise Architect and IRD Lead, Head of ICT, Systems Analyst Lead, Business Process analyst, and ICT strategy specialist. She has also held positions as project manager, electronics engineer and researcher earlier in her career.</p>
+                <p>She is currently studying towards a PhD in Computer Engineering, where her topic is "Knowledge Transfer for Developmental Learning of Robot Kinematics". She holds a Masters' Degree in IT, a BSc Honours in Electronics, and a BSc in Electronics and Mathematics.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="expertise">
+        <div class="container">
+            <h2 class="section-title">Areas of Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Property & Real Estate</h3>
+                    <ul class="skill-list">
+                        <li>Property Development and Management</li>
+                        <li>Real Estate</li>
+                        <li>Interior Design</li>
+                        <li>Business Development</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>ICT Management</h3>
+                    <ul class="skill-list">
+                        <li>ICT Strategic Management</li>
+                        <li>Enterprise Architecture</li>
+                        <li>Business Analysis</li>
+                        <li>ICT Infrastructure and Operations</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Business & Leadership</h3>
+                    <ul class="skill-list">
+                        <li>Financial Management</li>
+                        <li>Business Process Management</li>
+                        <li>Programme and Project Management</li>
+                        <li>Stakeholder Management</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Technical & Research</h3>
+                    <ul class="skill-list">
+                        <li>Machine Learning</li>
+                        <li>Research and Development</li>
+                        <li>Knowledge Management</li>
+                        <li>Organizational Design</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="methodologies">
+        <div class="container">
+            <h2 class="section-title">Methodologies & Tools</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Real Estate Tools</h3>
+                    <ul class="skill-list">
+                        <li>Lightstone</li>
+                        <li>Virtual Agent</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Enterprise Architecture</h3>
+                    <ul class="skill-list">
+                        <li>Lean IX</li>
+                        <li>Bizz Design</li>
+                        <li>Design Thinking</li>
+                        <li>TOGAF</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Project Management</h3>
+                    <ul class="skill-list">
+                        <li>PRINCE2</li>
+                        <li>PMBOK</li>
+                        <li>JIRA</li>
+                        <li>MS Project</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Technical Tools</h3>
+                    <ul class="skill-list">
+                        <li>Python</li>
+                        <li>MATLAB</li>
+                        <li>MS Dynamics AX</li>
+                        <li>SAP All in One</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education & Qualifications</h2>
+            <table class="education-table">
+                <thead>
+                    <tr>
+                        <th>Qualification</th>
+                        <th>NQF Level</th>
+                        <th>Institution</th>
+                        <th>Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>T Excepmted and PDE 4 and PDE 5 Qualified in Real Estate</td>
+                        <td>NQF 4</td>
+                        <td>The SA PPRA</td>
+                        <td>2025</td>
+                    </tr>
+                    <tr>
+                        <td>PhD Computer Engineering (Current)</td>
+                        <td>NQF 10</td>
+                        <td>WITS University</td>
+                        <td>Current</td>
+                    </tr>
+                    <tr>
+                        <td>Master's in Information Technology</td>
+                        <td>NQF 9</td>
+                        <td>University of Pretoria</td>
+                        <td>2017</td>
+                    </tr>
+                    <tr>
+                        <td>TOGAF Certification</td>
+                        <td>Professional</td>
+                        <td>IRM Solutions</td>
+                        <td>2017</td>
+                    </tr>
+                    <tr>
+                        <td>Executive Leadership Certificate</td>
+                        <td>NQF 8</td>
+                        <td>Vaal University of Technology</td>
+                        <td>2012</td>
+                    </tr>
+                    <tr>
+                        <td>BSc. Honours Degree in Electronics</td>
+                        <td>NQF 8</td>
+                        <td>North West University</td>
+                        <td>2005</td>
+                    </tr>
+                    <tr>
+                        <td>BSc. Degree in Electronics and Mathematics</td>
+                        <td>NQF 7</td>
+                        <td>North West University</td>
+                        <td>2004</td>
+                    </tr>
+                    <tr>
+                        <td>Matric: Maths, English, Sesotho, Biology, Physical Science and Mercantile Law</td>
+                        <td>NQF 4</td>
+                        <td>Fame College</td>
+                        <td>1999</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Career History</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Dipsel Properties</h3>
+                        <div class="date">09/2025 - Current</div>
+                        <p>Principal Property Practitioner, CEO and Sole Director</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Tyson Properties</h3>
+                        <div class="date">09/2024 - 08/2025</div>
+                        <p>Property Practitioner</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Rand Water</h3>
+                        <div class="date">02/2023 - 05/2024</div>
+                        <p>Senior Manager: EA, BA and BPO</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Harmony Gold Mining</h3>
+                        <div class="date">12/2021 - 01/2023</div>
+                        <p>Enterprise Architecture and IRD Lead</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>JOSHCO</h3>
+                        <div class="date">05/2020 - 11/2021</div>
+                        <p>Head of ICT</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>WESBANK</h3>
+                        <div class="date">04/2018 - 04/2019</div>
+                        <p>Senior Business Analyst Consultant</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>References available on request</p>
+                <div class="social-links">
+                    <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="#" title="Phone"><i class="fas fa-phone"></i></a>
+                </div>
+                <p>&copy; 2023 Letsebela Prudence Lebenya. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 50,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Active navigation highlighting
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 100) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Back to top button visibility
+            const backToTopButton = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        // Timeline animation
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        
+        function checkTimelineVisibility() {
+            timelineItems.forEach(item => {
+                const itemTop = item.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (itemTop < windowHeight * 0.85) {
+                    item.classList.add('visible');
+                }
+            });
+        }
+        
+        // Initial check
+        checkTimelineVisibility();
+        
+        // Check on scroll
+        window.addEventListener('scroll', checkTimelineVisibility);
+        
+        // Back to top functionality
+        document.getElementById('backToTop').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
